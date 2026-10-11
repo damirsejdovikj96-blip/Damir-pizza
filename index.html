@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aroma Bistro & Bar - Дигитално Мени</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 pb-32">
+
+  <!-- Заглавие / Header -->
+  <header class="bg-amber-600 text-white p-4 text-center shadow-md sticky top-0 z-20">
+    <h1 class="text-2xl font-black tracking-wide">🍕 Aroma Bistro & Bar</h1>
+    <div id="table-badge" class="mt-1 inline-block bg-amber-800 text-amber-100 text-xs px-3 py-1 rounded-full font-bold">
+      Маса: Се вчитава...
+    </div>
+  </header>
+
+  <!-- Главен содржина / МЕНИ -->
+  <main class="max-w-md mx-auto p-4 space-y-6">
+
+    <!-- Пици -->
+    <section>
+      <h2 class="text-xl font-bold text-gray-800 border-b-2 border-amber-500 pb-1 mb-3">🍕 Пици</h2>
+      <div class="space-y-3">
+        <div class="bg-white p-4 rounded-xl shadow-sm border flex justify-between items-center">
+          <div>
+            <h3 class="font-bold text-gray-900">Пица Капричоза</h3>
+            <p class="text-sm text-gray-500">Доматен сос, кашкавал, шунка, печурки</p>
+            <p class="text-amber-600 font-black mt-1">320 МКД</p>
+          </div>
+          <button onclick="addToCart('Пица Капричоза', 320)" class="bg-amber-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-amber-700 active:scale-95 transition">
+            + Додај
+          </button>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl shadow-sm border flex justify-between items-center">
+          <div>
+            <h3 class="font-bold text-gray-900">Пица Маргарита</h3>
+            <p class="text-sm text-gray-500">Доматен сос, кашкавал, босилек</p>
+            <p class="text-amber-600 font-black mt-1">280 МКД</p>
+          </div>
+          <button onclick="addToCart('Пица Маргарита', 280)" class="bg-amber-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-amber-700 active:scale-95 transition">
+            + Додај
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Кафе и Топли пијалоци -->
+    <section>
+      <h2 class="text-xl font-bold text-gray-800 border-b-2 border-amber-500 pb-1 mb-3">☕ Кафе & Топли Пијалоци</h2>
+      <div class="space-y-3">
+        <div class="bg-white p-4 rounded-xl shadow-sm border flex justify-between items-center">
+          <div>
+            <h3 class="font-bold text-gray-900">Еспресо</h3>
+            <p class="text-amber-600 font-black mt-1">80 МКД</p>
+          </div>
+          <button onclick="addToCart('Еспресо', 80)" class="bg-amber-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-amber-700 active:scale-95 transition">
+            + Додај
+          </button>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl shadow-sm border flex justify-between items-center">
+          <div>
+            <h3 class="font-bold text-gray-900">Макијато</h3>
+            <p class="text-amber-600 font-black mt-1">90 МКД</p>
+          </div>
+          <button onclick="addToCart('Макијато', 90)" class="bg-amber-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-amber-700 active:scale-95 transition">
+            + Додај
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Пијалоци & Сокови -->
+    <section>
+      <h2 class="text-xl font-bold text-gray-800 border-b-2 border-amber-500 pb-1 mb-3">🥤 Сокови & Пијалоци</h2>
+      <div class="space-y-3">
+        <div class="bg-white p-4 rounded-xl shadow-sm border flex justify-between items-center">
+          <div>
+            <h3 class="font-bold text-gray-900">Кока Кола 0.25л</h3>
+            <p class="text-amber-600 font-black mt-1">110 МКД</p>
+          </div>
+          <button onclick="addToCart('Кока Кола 0.25л', 110)" class="bg-amber-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-amber-700 active:scale-95 transition">
+            + Додај
+          </button>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl shadow-sm border flex justify-between items-center">
+          <div>
+            <h3 class="font-bold text-gray-900">Кисела Вода 0.25л</h3>
+            <p class="text-amber-600 font-black mt-1">70 МКД</p>
+          </div>
+          <button onclick="addToCart('Кисела Вода 0.25л', 70)" class="bg-amber-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-amber-700 active:scale-95 transition">
+            + Додај
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Фиксна лента на дното за кошничка -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-2xl z-30 max-w-md mx-auto">
+    <div class="flex justify-between items-center mb-2">
+      <div>
+        <p class="text-xs text-gray-500 font-bold">Вкупно за наплата:</p>
+        <p id="bottom-total" class="text-2xl font-black text-amber-600">0 МКД</p>
+      </div>
+      <button onclick="openCartModal()" class="bg-emerald-600 text-white px-6 py-3 rounded-xl font-black shadow-lg hover:bg-emerald-700 active:scale-95 transition flex items-center space-x-2">
+        <span>🛒 Прегледај Кошничка</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- МОДАЛЕН ПРОЗОР ЗА КОШНИЧКА -->
+  <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-2xl sm:rounded-2xl p-5 space-y-4 max-h-[85vh] flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-center border-b pb-3">
+          <h3 class="text-xl font-bold text-gray-800">🛒 Твојата Нарачка</h3>
+          <button onclick="closeCartModal()" class="text-gray-400 font-bold text-2xl hover:text-gray-600">&times;</button>
+        </div>
+
+        <div id="cart-items-list" class="py-4 space-y-2 overflow-y-auto max-h-56">
+          <p class="text-gray-400 text-center py-4">Кошничката е празна.</p>
+        </div>
+      </div>
+
+      <div class="border-t pt-3 space-y-3">
+        <div class="flex justify-between text-lg font-bold">
+          <span>Вкупно:</span>
+          <span id="modal-total" class="text-amber-600">0 МКД</span>
+        </div>
+
+        <button onclick="sendOrderDirectly()" class="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-black py-4 rounded-xl shadow-lg hover:from-emerald-700 hover:to-emerald-800 active:scale-95 transition text-center text-lg">
+          🚀 НАРАЧАЈ СЕГА
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT ЛОГИКА -->
+  <script>
+    // Линк до твојот Apps Script Web App
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfyczbAgbrOua17rQcxX8qa4tfHVHUASvJMIBvN09Mwog7dyTNsb0ZolZmeHDP9buJXCvb/exec";
+
+    // Преземање број на маса од URL (?sto=1)
+    const urlParams = new URLSearchParams(window.location.search);
+    const tableNumber = urlParams.get('sto') || 'Непознато';
+    document.getElementById('table-badge').innerText = "Маса број: " + tableNumber;
+
+    let cart = [];
+
+    // Додавање артикал
+    function addToCart(item, price) {
+      cart.push({ item, price });
+      updateUI();
+    }
+
+    // Бришење артикал
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateUI();
+    }
+
+    // Ажурирање на интерфејсот
+    function updateUI() {
+      const total = cart.reduce((sum, i) => sum + i.price, 0);
+      document.getElementById('bottom-total').innerText = total + " МКД";
+      document.getElementById('modal-total').innerText = total + " МКД";
+
+      const listContainer = document.getElementById('cart-items-list');
+      if (cart.length === 0) {
+        listContainer.innerHTML = '<p class="text-gray-400 text-center py-4">Кошничката е празна.</p>';
+      } else {
+        listContainer.innerHTML = cart.map((c, idx) => `
+          <div class="flex justify-between items-center bg-gray-50 p-2.5 rounded-lg border">
+            <div>
+              <p class="font-bold text-sm text-gray-800">${c.item}</p>
+              <p class="text-xs text-amber-600 font-semibold">${c.price} МКД</p>
+            </div>
+            <button onclick="removeFromCart(${idx})" class="text-red-500 hover:text-red-700 text-xs font-bold bg-red-50 px-2 py-1 rounded">
+              Избриши
+            </button>
+          </div>
+        `).join('');
+      }
+    }
+
+    // Модални прозорци
+    function openCartModal() {
+      document.getElementById('cart-modal').classList.remove('hidden');
+    }
+
+    function closeCartModal() {
+      document.getElementById('cart-modal').classList.add('hidden');
+    }
+
+    // НАЈВАЖНАТА ФУНКЦИЈА: Праќање на нарачката преку скриена форма (го заобиколува CORS)
+    function sendOrderDirectly() {
+      if (cart.length === 0) {
+        alert("Вашата кошничка е празна!");
+        return;
+      }
+
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      const itemsList = cart.map(i => i.item).join(", ");
+
+      // Правење скриена форма
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = WEB_APP_URL;
+      form.target = 'hidden_frame';
+
+      const payloadInput = document.createElement('input');
+      payloadInput.type = 'hidden';
+      payloadInput.name = 'postData';
+      payloadInput.value = JSON.stringify({
+        table: tableNumber,
+        items: itemsList,
+        total: total + " МКД"
+      });
+
+      form.appendChild(payloadInput);
+
+      let iframe = document.getElementById('hidden_frame');
+      if (!iframe) {
+        iframe = document.createElement('iframe');
+        iframe.name = 'hidden_frame';
+        iframe.id = 'hidden_frame';
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+      }
+
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+
+      alert("Вашата нарачка е успешно испратена!");
+      cart = [];
+      updateUI();
+      closeCartModal();
+    }
+  </script>
+</body>
+</html>
